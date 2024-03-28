@@ -3,21 +3,12 @@
     <script>
       (async () => {
         let htmlString = '<ul>';
-        const response = await fetch('https://api.github.com/repos/SonicDeathMonkey/2024_FRL_Boys/contents/2024/03');
+        const response = await fetch('https://api.github.com/repos/SonicDeathMonkey/2024_FRL_Boys/2024/03/contents');
         const data = await response.json();
         for (let file of data) {
           htmlString += `<li><a href="${file.path}">${file.name}</a></li>`;
         }
-        response = await fetch('https://api.github.com/repos/SonicDeathMonkey/2024_FRL_Boys/contents/2024/04');
-        data = await response.json();
-        for (let file of data) {
-          htmlString += `<li><a href="${file.path}">${file.name}</a></li>`;
-        }
-        response = await fetch('https://api.github.com/repos/SonicDeathMonkey/2024_FRL_Boys/contents/2024/05');
-        data = await response.json();
-        for (let file of data) {
-          htmlString += `<li><a href="${file.path}">${file.name}</a></li>`;
-        }
+        
         htmlString += '</ul>';
         document.getElementsByTagName('body')[0].innerHTML = htmlString;
       })()
